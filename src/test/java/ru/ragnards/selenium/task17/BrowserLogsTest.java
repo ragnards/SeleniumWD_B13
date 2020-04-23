@@ -26,7 +26,7 @@ public class BrowserLogsTest extends BaseTest {
             WebElement product = driver.findElements(By.cssSelector("[href*='product_id']:not([title])")).get(i);
             wait.until(elementToBeClickable(product)).click();
             List<LogEntry> logs = driver.manage().logs().get("browser").getAll();
-            if (logs.size() != 0) {
+            if (!logs.isEmpty()) {
                 System.out.println("JS errors on the page " + driver.getCurrentUrl() + ":\n" + logs);
             }
             navigateToCatalog();
