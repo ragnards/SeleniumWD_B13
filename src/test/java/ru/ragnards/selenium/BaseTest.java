@@ -37,4 +37,11 @@ public abstract class BaseTest {
             return false;
         }
     }
+
+    protected void loginAsAdmin() {
+        driver.navigate().to("http://localhost/litecart/admin/");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
+    }
 }
